@@ -13,6 +13,7 @@ public class HandleUI : MonoBehaviour
     float speedSpin;
     bool spin;
     bool startTimer;
+    bool stop;
 
     private void Update()
     {
@@ -24,6 +25,8 @@ public class HandleUI : MonoBehaviour
     {
         if (startTimer)
         {
+            if (stop)
+                return;
 
             if(timerValue > 0)
             {
@@ -32,10 +35,10 @@ public class HandleUI : MonoBehaviour
             else
             {
                 timerValue = 0;
-                rewardOBJ.transform.Find("Spin").GetComponent<Button>().interactable = true;
                 timerOBJ.transform.Find("SelectTimer").GetComponent<Button>().interactable = true;
                 timerOBJ.transform.Find("SelectTimer").Find("DropDownBox").gameObject.SetActive(true);
                 rewardOBJ.transform.Find("InputField").GetComponent<TMP_InputField>().interactable = true;
+                rewardOBJ.transform.Find("Spin").GetComponent<Button>().interactable = true;
                 startTimer = false;
             }
 
@@ -103,8 +106,36 @@ public class HandleUI : MonoBehaviour
         }
 
         startTimer = true;
+        timerOBJ.transform.Find("Start").GetComponent<Button>().interactable = false;
+        timerOBJ.transform.Find("Stop").GetComponent<Button>().interactable = true;
+
         timerOBJ.transform.Find("SelectTimer").GetComponent<Button>().interactable = false;
         timerOBJ.transform.Find("SelectTimer").Find("DropDownBox").gameObject.SetActive(false);
         rewardOBJ.transform.Find("InputField").GetComponent<TMP_InputField>().interactable = false;
+    }
+
+    public void StopTimer()
+    {
+        stop = !stop;
+
+        timerOBJ.transform.Find("Stop").GetComponentInChildren<TextMeshProUGUI>().text = stop ? "continue" : "stop";
+    }
+
+    public void RestartTimer()
+    {
+        startTimer = false;
+        stop = false;
+
+        timerValue = 0;
+
+        DisplayTime(timerValue);
+
+        timerOBJ.transform.Find("Start").GetComponent<Button>().interactable = true;
+        timerOBJ.transform.Find("Stop").GetComponent<Button>().interactable = false;
+
+        timerOBJ.transform.Find("SelectTimer").GetComponent<Button>().interactable = true;
+        timerOBJ.transform.Find("SelectTimer").Find("DropDownBox").gameObject.SetActive(false);
+        rewardOBJ.transform.Find("InputField").GetComponent<TMP_InputField>().interactable = true;
+        rewardOBJ.transform.Find("InputField").GetComponent<TMP_InputField>().text = "";
     }
 }

@@ -1001,7 +1001,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.906, y: 0}
   m_AnchorMax: {x: 1, y: 0.98800004}
-  m_AnchoredPosition: {x: 0.21002197, y: 1}
+  m_AnchoredPosition: {x: 0.21000671, y: 1}
   m_SizeDelta: {x: -0.4300003, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &477641318
@@ -3563,7 +3563,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 87309537}
         m_TargetAssemblyTypeName: HandleUI, Assembly-CSharp
-        m_MethodName: StartTimer
+        m_MethodName: RestartTimer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4638,14 +4638,14 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1625634106}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 87309537}
         m_TargetAssemblyTypeName: HandleUI, Assembly-CSharp
-        m_MethodName: StartTimer
+        m_MethodName: StopTimer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
