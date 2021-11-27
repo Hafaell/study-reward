@@ -6,9 +6,9 @@ using TMPro;
 
 public class HandleUI : MonoBehaviour
 {
-    [SerializeField] GameObject roleta, spinButton, selectTimer, inputField;
+    [SerializeField] GameObject timerOBJ, rewardOBJ;
     [SerializeField] TextMeshProUGUI TimerText;
-    [SerializeField] float timerValue = 90;
+    [SerializeField] float timerValue = 50;
 
     float speedSpin;
     bool spin;
@@ -32,7 +32,10 @@ public class HandleUI : MonoBehaviour
             else
             {
                 timerValue = 0;
-                spinButton.GetComponent<Button>().interactable = true;
+                rewardOBJ.transform.Find("Spin").GetComponent<Button>().interactable = true;
+                timerOBJ.transform.Find("SelectTimer").GetComponent<Button>().interactable = true;
+                timerOBJ.transform.Find("SelectTimer").Find("DropDownBox").gameObject.SetActive(true);
+                rewardOBJ.transform.Find("InputField").GetComponent<TMP_InputField>().interactable = true;
                 startTimer = false;
             }
 
@@ -57,7 +60,7 @@ public class HandleUI : MonoBehaviour
         if (!spin)
             return;
 
-        roleta.transform.Rotate(new Vector3(0, 0, 1), speedSpin * Time.deltaTime);
+        rewardOBJ.transform.Find("Quadro").Find("Roleta").transform.Rotate(new Vector3(0, 0, 1), speedSpin * Time.deltaTime);
         speedSpin = Mathf.Lerp(speedSpin, 0, Time.deltaTime);
 
         if (speedSpin < 0.2f)
@@ -67,7 +70,7 @@ public class HandleUI : MonoBehaviour
     public void StartSpin()
     {
         speedSpin = Random.Range(5000, 10000);
-        spinButton.GetComponent<Button>().interactable = false;
+        rewardOBJ.transform.Find("Spin").GetComponent<Button>().interactable = false;
         spin = true;
     }
 
@@ -81,8 +84,27 @@ public class HandleUI : MonoBehaviour
 
     public void StartTimer()
     {
+        Animator animInsertText = rewardOBJ.transform.parent.transform.Find("InsertText").GetComponent<Animator>();
+        Animator animInsertTimer = timerOBJ.transform.Find("TimerCount").Find("Text").GetComponent<Animator>();
+
+        if (timerValue == 0)
+        {
+            if (animInsertTimer.GetCurrentAnimatorStateInfo(0).IsName("Empty"))
+                animInsertTimer.SetTrigger("SelectTimer");
+            return;
+        }
+
+        if (rewardOBJ.transform.Find("InputField").GetComponent<TMP_InputField>().text == "")
+        {
+            if (animInsertText.GetCurrentAnimatorStateInfo(0).IsName("Empty"))
+                animInsertText.SetTrigger("insertText");
+           
+            return;
+        }
+
         startTimer = true;
-        selectTimer.GetComponent<Button>().interactable = false;
-        inputField.GetComponent<TMP_InputField>().interactable = false;
+        timerOBJ.transform.Find("SelectTimer").GetComponent<Button>().interactable = false;
+        timerOBJ.transform.Find("SelectTimer").Find("DropDownBox").gameObject.SetActive(false);
+        rewardOBJ.transform.Find("InputField").GetComponent<TMP_InputField>().interactable = false;
     }
 }
