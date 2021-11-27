@@ -10,7 +10,10 @@ public class HandleUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI TimerText;
     [SerializeField] float timerValue = 50;
 
+    public static bool checkColors;
+
     float speedSpin;
+    float decreaseSpinTimer;
     bool spin;
     bool startTimer;
     bool stop;
@@ -35,8 +38,11 @@ public class HandleUI : MonoBehaviour
             else
             {
                 timerValue = 0;
+                timerOBJ.transform.Find("Start").GetComponent<Button>().interactable = true;
+                timerOBJ.transform.Find("Stop").GetComponent<Button>().interactable = false;
+
                 timerOBJ.transform.Find("SelectTimer").GetComponent<Button>().interactable = true;
-                timerOBJ.transform.Find("SelectTimer").Find("DropDownBox").gameObject.SetActive(true);
+                timerOBJ.transform.Find("SelectTimer").Find("DropDownBox").gameObject.SetActive(false);
                 rewardOBJ.transform.Find("InputField").GetComponent<TMP_InputField>().interactable = true;
                 rewardOBJ.transform.Find("Spin").GetComponent<Button>().interactable = true;
                 startTimer = false;
@@ -64,15 +70,19 @@ public class HandleUI : MonoBehaviour
             return;
 
         rewardOBJ.transform.Find("Quadro").Find("Roleta").transform.Rotate(new Vector3(0, 0, 1), speedSpin * Time.deltaTime);
-        speedSpin = Mathf.Lerp(speedSpin, 0, Time.deltaTime);
+        speedSpin = Mathf.Lerp(speedSpin, 0, Time.deltaTime * decreaseSpinTimer);
 
-        if (speedSpin < 0.2f)
+        if (speedSpin < 0.5f)
+        {
+            checkColors = true;
             spin = false;
+        }
     }
 
     public void StartSpin()
     {
         speedSpin = Random.Range(5000, 10000);
+        decreaseSpinTimer = Random.Range(0.5f, 2f);
         rewardOBJ.transform.Find("Spin").GetComponent<Button>().interactable = false;
         spin = true;
     }
