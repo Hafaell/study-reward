@@ -220,8 +220,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 87309536}
+  - component: {fileID: 87309537}
   m_Layer: 0
-  m_Name: HandlesUI
+  m_Name: HandleUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,6 +242,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &87309537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87309535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d56a25390db6244bf37a263996e564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roleta: {fileID: 1919511385}
+  spinButton: {fileID: 579557875}
+  selectTimer: {fileID: 726433680}
+  inputField: {fileID: 2085013581}
+  TimerText: {fileID: 1623572243}
+  timerValue: 0
 --- !u!1 &102935649
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,6 +406,7 @@ GameObject:
   - component: {fileID: 185712817}
   - component: {fileID: 185712816}
   - component: {fileID: 185712818}
+  - component: {fileID: 185712819}
   m_Layer: 5
   m_Name: Item (3)
   m_TagString: Untagged
@@ -508,6 +528,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 87309537}
+        m_TargetAssemblyTypeName: HandleUI, Assembly-CSharp
+        m_MethodName: SelectHour
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &185712819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185712814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec76aa8f282b6d499fd86a585935def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  realHours: 0
 --- !u!1 &193094111
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +588,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -2.3107681, y: 0}
+  m_SizeDelta: {x: -2.253456, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &193094113
 MonoBehaviour:
@@ -616,7 +661,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 9:00:00
+  m_text: 8
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 67678542038a4df46bf4588cd0a69e7c, type: 2}
   m_sharedMaterial: {fileID: 775968269014150846, guid: 67678542038a4df46bf4588cd0a69e7c, type: 2}
@@ -1004,7 +1049,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1220831753}
   m_Direction: 2
   m_Value: 0.99995476
-  m_Size: 0.4289774
+  m_Size: 0.4290847
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1104,7 +1149,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 4:00:00
+  m_text: 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 67678542038a4df46bf4588cd0a69e7c, type: 2}
   m_sharedMaterial: {fileID: 775968269014150846, guid: 67678542038a4df46bf4588cd0a69e7c, type: 2}
@@ -1238,7 +1283,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 7:00:00
+  m_text: 6
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 67678542038a4df46bf4588cd0a69e7c, type: 2}
   m_sharedMaterial: {fileID: 775968269014150846, guid: 67678542038a4df46bf4588cd0a69e7c, type: 2}
@@ -1327,6 +1372,7 @@ GameObject:
   - component: {fileID: 496997605}
   - component: {fileID: 496997604}
   - component: {fileID: 496997606}
+  - component: {fileID: 496997607}
   m_Layer: 5
   m_Name: Item (4)
   m_TagString: Untagged
@@ -1448,6 +1494,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 87309537}
+        m_TargetAssemblyTypeName: HandleUI, Assembly-CSharp
+        m_MethodName: SelectHour
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &496997607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496997602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec76aa8f282b6d499fd86a585935def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  realHours: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,7 +1836,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 579557878}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 87309537}
+        m_TargetAssemblyTypeName: HandleUI, Assembly-CSharp
+        m_MethodName: StartSpin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &579557878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2125,7 +2208,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 771305491}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 87309537}
+        m_TargetAssemblyTypeName: HandleUI, Assembly-CSharp
+        m_MethodName: StartTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &781077285
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,7 +2460,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 91.85
+  m_fontSize: 91.95
   m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2505,6 +2600,7 @@ GameObject:
   - component: {fileID: 878817294}
   - component: {fileID: 878817293}
   - component: {fileID: 878817295}
+  - component: {fileID: 878817296}
   m_Layer: 5
   m_Name: Item (2)
   m_TagString: Untagged
@@ -2626,6 +2722,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 87309537}
+        m_TargetAssemblyTypeName: HandleUI, Assembly-CSharp
+        m_MethodName: SelectHour
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &878817296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878817291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec76aa8f282b6d499fd86a585935def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  realHours: 0
 --- !u!1 &994818100
 GameObject:
   m_ObjectHideFlags: 0
@@ -2710,7 +2831,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52.25
+  m_fontSize: 52.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3026,7 +3147,7 @@ RectTransform:
   m_Father: {fileID: 73963351}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.57099676}
+  m_AnchorMin: {x: 0, y: 0.5708895}
   m_AnchorMax: {x: 1, y: 0.99997413}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -3153,7 +3274,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 119.1
+  m_fontSize: 118.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3336,7 +3457,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 8:00:00
+  m_text: 7
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 67678542038a4df46bf4588cd0a69e7c, type: 2}
   m_sharedMaterial: {fileID: 775968269014150846, guid: 67678542038a4df46bf4588cd0a69e7c, type: 2}
@@ -3578,7 +3699,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 6:00:00
+  m_text: 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 67678542038a4df46bf4588cd0a69e7c, type: 2}
   m_sharedMaterial: {fileID: 775968269014150846, guid: 67678542038a4df46bf4588cd0a69e7c, type: 2}
@@ -3801,6 +3922,7 @@ GameObject:
   - component: {fileID: 1627993798}
   - component: {fileID: 1627993797}
   - component: {fileID: 1627993799}
+  - component: {fileID: 1627993800}
   m_Layer: 5
   m_Name: Item (1)
   m_TagString: Untagged
@@ -3922,6 +4044,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 87309537}
+        m_TargetAssemblyTypeName: HandleUI, Assembly-CSharp
+        m_MethodName: SelectHour
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1627993800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627993795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec76aa8f282b6d499fd86a585935def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  realHours: 0
 --- !u!1 &1683202216
 GameObject:
   m_ObjectHideFlags: 0
@@ -3934,6 +4081,7 @@ GameObject:
   - component: {fileID: 1683202219}
   - component: {fileID: 1683202218}
   - component: {fileID: 1683202220}
+  - component: {fileID: 1683202221}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -4055,6 +4203,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 87309537}
+        m_TargetAssemblyTypeName: HandleUI, Assembly-CSharp
+        m_MethodName: SelectHour
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1683202221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683202216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec76aa8f282b6d499fd86a585935def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  realHours: 0
 --- !u!1 &1688502964
 GameObject:
   m_ObjectHideFlags: 0
@@ -4190,7 +4363,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5:00:00
+  m_text: 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 67678542038a4df46bf4588cd0a69e7c, type: 2}
   m_sharedMaterial: {fileID: 775968269014150846, guid: 67678542038a4df46bf4588cd0a69e7c, type: 2}
@@ -4279,6 +4452,7 @@ GameObject:
   - component: {fileID: 1857179938}
   - component: {fileID: 1857179937}
   - component: {fileID: 1857179939}
+  - component: {fileID: 1857179940}
   m_Layer: 5
   m_Name: Item (5)
   m_TagString: Untagged
@@ -4400,6 +4574,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 87309537}
+        m_TargetAssemblyTypeName: HandleUI, Assembly-CSharp
+        m_MethodName: SelectHour
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1857179940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857179935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec76aa8f282b6d499fd86a585935def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  realHours: 0
 --- !u!1 &1919511385
 GameObject:
   m_ObjectHideFlags: 0
