@@ -410,7 +410,7 @@ MonoBehaviour:
   timerOBJ: {fileID: 1688502964}
   rewardOBJ: {fileID: 864063015}
   TimerText: {fileID: 1623572243}
-  timerValue: 1
+  timerValue: 0
   win_UI: {fileID: 1396355104}
   ColorReward: {fileID: 487144522}
   checkColors: 0
