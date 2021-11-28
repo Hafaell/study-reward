@@ -410,7 +410,7 @@ MonoBehaviour:
   timerOBJ: {fileID: 1688502964}
   rewardOBJ: {fileID: 864063015}
   TimerText: {fileID: 1623572243}
-  timerValue: 0
+  timerValue: 1
   win_UI: {fileID: 1396355104}
   ColorReward: {fileID: 487144522}
   checkColors: 0
@@ -9289,6 +9289,7 @@ MonoBehaviour:
   buttons: {fileID: 8300000, guid: 2111a07fcd751ef4996e51786167626e, type: 3}
   roullet: {fileID: 8300000, guid: 661a323b14406e44bbca77a754d242b0, type: 3}
   vento: {fileID: 8300000, guid: 869240bade4f62942ba5ab0b4413a69d, type: 3}
+  win: {fileID: 8300000, guid: 057a1468407a92247b67cc75302c16dc, type: 3}
 --- !u!1 &1761706731
 GameObject:
   m_ObjectHideFlags: 0

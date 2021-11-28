@@ -57,6 +57,9 @@ public class HandleUI : MonoBehaviour
                 timerOBJ.transform.Find("SelectTimer").Find("DropDownBox").gameObject.SetActive(false);
                 rewardOBJ.transform.Find("InputField").GetComponent<TMP_InputField>().interactable = true;
                 ActiveSpin(true);
+
+                SoundsManager.instance.PlaySound(SoundsManager.instance.win, 1, 0.7f);
+
                 startTimer = false;
             }
 

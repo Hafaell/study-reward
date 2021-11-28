@@ -8,6 +8,7 @@ public class SoundsManager : MonoBehaviour
     public AudioClip buttons;
     public AudioClip roullet;
     public AudioClip vento;
+    public AudioClip win;
 
 
     AudioSource AudioSource;
