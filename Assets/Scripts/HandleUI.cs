@@ -19,6 +19,7 @@ public class HandleUI : MonoBehaviour
     bool spin;
     bool startTimer;
     bool stop;
+    public static bool sound;
 
     public static bool checkColors;
 
@@ -45,7 +46,7 @@ public class HandleUI : MonoBehaviour
                 timerOBJ.transform.Find("Start").GetComponent<Button>().interactable = true;
                 timerOBJ.transform.Find("Stop").GetComponent<Button>().interactable = false;
 
-                timerOBJ.transform.Find("SelectTimer").GetComponent<Button>().interactable = true;
+                timerOBJ.transform.Find("SelectTimer").Find("Button").GetComponent<Button>().interactable = true;
                 timerOBJ.transform.Find("SelectTimer").Find("DropDownBox").gameObject.SetActive(false);
                 rewardOBJ.transform.Find("InputField").GetComponent<TMP_InputField>().interactable = true;
                 rewardOBJ.transform.Find("Spin").GetComponent<Button>().interactable = true;
@@ -79,6 +80,7 @@ public class HandleUI : MonoBehaviour
         if (speedSpin < 0.5f)
         {
             checkColors = true;
+            sound = false;
             spin = false;
         }
     }
@@ -88,6 +90,7 @@ public class HandleUI : MonoBehaviour
         speedSpin = Random.Range(5000, 10000);
         decreaseSpinTimer = Random.Range(0.5f, 2f);
         rewardOBJ.transform.Find("Spin").GetComponent<Button>().interactable = false;
+        sound = true;
         spin = true;
     }
 
@@ -123,7 +126,7 @@ public class HandleUI : MonoBehaviour
         timerOBJ.transform.Find("Start").GetComponent<Button>().interactable = false;
         timerOBJ.transform.Find("Stop").GetComponent<Button>().interactable = true;
 
-        timerOBJ.transform.Find("SelectTimer").GetComponent<Button>().interactable = false;
+        timerOBJ.transform.Find("SelectTimer").Find("Button").GetComponent<Button>().interactable = false;
         timerOBJ.transform.Find("SelectTimer").Find("DropDownBox").gameObject.SetActive(false);
         rewardOBJ.transform.Find("InputField").GetComponent<TMP_InputField>().interactable = false;
     }
@@ -147,7 +150,7 @@ public class HandleUI : MonoBehaviour
         timerOBJ.transform.Find("Start").GetComponent<Button>().interactable = true;
         timerOBJ.transform.Find("Stop").GetComponent<Button>().interactable = false;
 
-        timerOBJ.transform.Find("SelectTimer").GetComponent<Button>().interactable = true;
+        timerOBJ.transform.Find("SelectTimer").Find("Button").GetComponent<Button>().interactable = true;
         timerOBJ.transform.Find("SelectTimer").Find("DropDownBox").gameObject.SetActive(false);
         rewardOBJ.transform.Find("InputField").GetComponent<TMP_InputField>().interactable = true;
         rewardOBJ.transform.Find("InputField").GetComponent<TMP_InputField>().text = "";
