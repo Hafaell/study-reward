@@ -7,6 +7,7 @@ public class SoundsManager : MonoBehaviour
     [Header("Audios")]
     public AudioClip buttons;
     public AudioClip roullet;
+    public AudioClip vento;
 
 
     AudioSource AudioSource;
@@ -30,5 +31,10 @@ public class SoundsManager : MonoBehaviour
     public void buttonsSound()
     {
         PlaySound(buttons, Random.Range(1.2f, 1.4f));
+    }
+
+    public void winPopUp()
+    {
+        PlaySound(vento, Random.Range(1.2f, 1.6f), 0.5f);
     }
 }

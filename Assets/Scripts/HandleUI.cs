@@ -159,6 +159,7 @@ public class HandleUI : MonoBehaviour
     public void CallColorReward(string colorName)
     {
         win_UI.GetComponent<Animator>().Play("win");
+        SoundsManager.instance.winPopUp();
 
         for (int i = 0; i < ColorReward.transform.childCount; i++)
         {
