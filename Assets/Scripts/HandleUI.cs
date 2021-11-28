@@ -10,13 +10,13 @@ public class HandleUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI TimerText;
     [SerializeField] float timerValue = 50;
 
-    public static bool checkColors;
-
     float speedSpin;
     float decreaseSpinTimer;
     bool spin;
     bool startTimer;
     bool stop;
+
+    public static bool checkColors;
 
     private void Update()
     {
