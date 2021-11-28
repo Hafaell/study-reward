@@ -21,14 +21,19 @@ public class RoulletColors : MonoBehaviour
     {
         LayerMask layer = collision.gameObject.layer;
         
-        if (HandleUI.checkColors)
+        if (HandleUI.instance.checkColors)
         {
             if (layer == LayerMask.NameToLayer("Pointer"))
             {
                 FindObjectOfType<HandleUI>().CallColorReward(gameObject.name);
+
+                if (gameObject.name == "laranjaCLaro")
+                {
+                    HandleUI.instance.ActiveSpin(true);
+                }
             }
 
-            HandleUI.checkColors = false;
+            HandleUI.instance.checkColors = false;
         }
     }
 }

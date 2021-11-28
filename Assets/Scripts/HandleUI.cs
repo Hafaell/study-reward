@@ -21,7 +21,14 @@ public class HandleUI : MonoBehaviour
     bool stop;
     public static bool sound;
 
-    public static bool checkColors;
+    public bool checkColors;
+
+    public static HandleUI instance;
+
+    private void Start()
+    {
+        instance = this;
+    }
 
     private void Update()
     {
@@ -49,7 +56,7 @@ public class HandleUI : MonoBehaviour
                 timerOBJ.transform.Find("SelectTimer").Find("Button").GetComponent<Button>().interactable = true;
                 timerOBJ.transform.Find("SelectTimer").Find("DropDownBox").gameObject.SetActive(false);
                 rewardOBJ.transform.Find("InputField").GetComponent<TMP_InputField>().interactable = true;
-                rewardOBJ.transform.Find("Spin").GetComponent<Button>().interactable = true;
+                ActiveSpin(true);
                 startTimer = false;
             }
 
@@ -89,7 +96,7 @@ public class HandleUI : MonoBehaviour
     {
         speedSpin = Random.Range(5000, 10000);
         decreaseSpinTimer = Random.Range(0.5f, 2f);
-        rewardOBJ.transform.Find("Spin").GetComponent<Button>().interactable = false;
+        ActiveSpin(false);
         sound = true;
         spin = true;
     }
@@ -167,5 +174,10 @@ public class HandleUI : MonoBehaviour
         }
 
         ColorReward.transform.Find(colorName).gameObject.SetActive(true);
+    }
+
+    public void ActiveSpin(bool isActive)
+    {
+        rewardOBJ.transform.Find("Spin").GetComponent<Button>().interactable = isActive;
     }
 }
