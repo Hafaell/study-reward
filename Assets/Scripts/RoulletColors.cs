@@ -12,7 +12,7 @@ public class RoulletColors : MonoBehaviour
         {
             if (layer == LayerMask.NameToLayer("Pointer"))
             {
-                print(gameObject.name);
+                FindObjectOfType<HandleUI>().CallColorReward(gameObject.name);
             }
 
             HandleUI.checkColors = false;

@@ -10,6 +10,10 @@ public class HandleUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI TimerText;
     [SerializeField] float timerValue = 50;
 
+    [Header("ColorsReward")]
+    [SerializeField] GameObject win_UI;
+    [SerializeField] GameObject ColorReward;
+
     float speedSpin;
     float decreaseSpinTimer;
     bool spin;
@@ -147,5 +151,17 @@ public class HandleUI : MonoBehaviour
         timerOBJ.transform.Find("SelectTimer").Find("DropDownBox").gameObject.SetActive(false);
         rewardOBJ.transform.Find("InputField").GetComponent<TMP_InputField>().interactable = true;
         rewardOBJ.transform.Find("InputField").GetComponent<TMP_InputField>().text = "";
+    }
+
+    public void CallColorReward(string colorName)
+    {
+        win_UI.GetComponent<Animator>().Play("win");
+
+        for (int i = 0; i < ColorReward.transform.childCount; i++)
+        {
+            ColorReward.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
+        ColorReward.transform.Find(colorName).gameObject.SetActive(true);
     }
 }
